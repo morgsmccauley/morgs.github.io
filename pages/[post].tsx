@@ -2,19 +2,23 @@ import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 
-import { getPostSlugs, getPostBySlug } from '../api/posts';
+import { getPostSlugs, getPostDataBySlug } from '../api/posts';
 import styles from '../styles/Home.module.css'
 
 type Props = {
   title: string,
+  description: string,
+  date: string,
   html: string,
 }
 
-const Post: React.FC<Props> = ({ title, html }) => (
+const Post: React.FC<Props> = ({ title, html, date, description }) => (
   <>
     <Head>{title}</Head>
     <main className={styles.main}>
       <h1 className={styles.title}>{title}</h1>
+      <p>{description}</p>
+      <p>{date}</p>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </main>
   </>
@@ -30,7 +34,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   return {
-    props: getPostBySlug(post),
+    props: getPostDataBySlug(post),
   };
 };
 

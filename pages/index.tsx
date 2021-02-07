@@ -1,12 +1,29 @@
 import React from 'react';
 import Head from 'next/head'
 
-import { getPostSlugs } from '../api/posts';
+import { getAllPostData } from '../api/posts';
 import styles from '../styles/Home.module.css'
 
-type Props = {
-  posts: string[],
+type Post = {
+  title: string,
+  description: string,
+  date: string,
+  slug: string,
 };
+
+type Props = {
+  posts: Post[],
+};
+
+const Post = ({ post: { slug, title, date, description } }: { post: Post }) => (
+  <div className={styles.post}>
+    <h3>
+      <a key={slug} href={slug}>{title}</a>
+    </h3>
+    <small>{date}</small>
+    <p>{description}</p>
+  </div>
+);
 
 const Home: React.FC<Props> = ({ posts }) => {
   return (
@@ -22,13 +39,11 @@ const Home: React.FC<Props> = ({ posts }) => {
         </h1>
 
         <p className={styles.description}>
-          Personal blog by Morgan McCauley{' '}
-          Passionate about GraphQL and JavaScript
+          <p>Personal blog by Morgan McCauley</p>
+          <p>Passionate about GraphQL and JavaScript</p>
         </p>
 
-        {posts.map((post) => (
-          <a key={post} href={post}>{post}</a>
-        ))}
+        {posts.map((post) => <Post post={post} />)}
       </main>
     </div>
   )
@@ -36,7 +51,7 @@ const Home: React.FC<Props> = ({ posts }) => {
 
 export const getStaticProps = async () => ({
   props: {
-    posts: getPostSlugs(),
+    posts: getAllPostData(),
   },
 });
 
