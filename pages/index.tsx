@@ -16,9 +16,9 @@ type Props = {
 };
 
 const Post = ({ post: { slug, title, date, description } }: { post: Post }) => (
-  <div className={styles.post}>
+  <div key={slug} className={styles.post}>
     <h3>
-      <a key={slug} href={slug}>{title}</a>
+      <a href={slug}>{title}</a>
     </h3>
     <small>{date}</small>
     <p>{description}</p>
@@ -40,7 +40,6 @@ const Home: React.FC<Props> = ({ posts }) => {
 
         <p className={styles.description}>
           <p>Personal blog by Morgan McCauley</p>
-          <p>Passionate about GraphQL and JavaScript</p>
         </p>
 
         {posts.map((post) => <Post post={post} />)}
