@@ -1,5 +1,5 @@
 ---
-title: GraphQL code-first schema development in Node.JS
+title: Code-first GraphQL Schemas
 description: ...
 date: 01-01-2021
 ---

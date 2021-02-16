@@ -1,5 +1,5 @@
 ---
-title: Setting up a GraphQL server in Rust
+title: GraphQL with Rust
 description: ...
 date: 01-01-2021
 ---

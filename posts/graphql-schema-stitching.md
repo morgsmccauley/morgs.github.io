@@ -1,5 +1,5 @@
 ---
-title: GraphQL schema stitching in Node.JS
+title: GraphQL Schema Stitching
 description: ...
 date: 01-01-2021
 ---
