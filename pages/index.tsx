@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import { getAllPostData } from '../api/posts';
 import styles from '../styles/Home.module.css'
+import Page from '../components/page';
 
 type Post = {
   title: string,
@@ -15,8 +16,9 @@ type Props = {
   posts: Post[],
 };
 
+
 const Post = ({ post: { slug, title, date, description } }: { post: Post }) => (
-  <div key={slug} className={styles.post}>
+  <div className={styles.post}>
     <h3>
       <a href={slug}>{title}</a>
     </h3>
@@ -27,24 +29,12 @@ const Post = ({ post: { slug, title, date, description } }: { post: Post }) => (
 
 const Home: React.FC<Props> = ({ posts }) => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>morgs.dev</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          morgs.dev
-        </h1>
-
-        <p className={styles.description}>
-          <p>Personal blog by Morgan McCauley</p>
-        </p>
-
-        {posts.map((post) => <Post post={post} />)}
-      </main>
-    </div>
+    <Page>
+      <p className={styles.description}>
+        Personal blog by Morgan McCauley
+      </p>
+      {posts.map((post) => <Post key={post.slug} post={post} />)}
+    </Page>
   )
 };
 

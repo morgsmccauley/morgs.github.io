@@ -1,14 +1,12 @@
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
+  align-self: center;
+  margin: auto;
+  max-width: 42rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .main {
-  padding: 5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -48,16 +46,26 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 42px;
+  font-weight: 800;
 }
 
 .title {
   text-align: center;
 }
 
+.header {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .description {
   line-height: 1.5;
-  font-size: 1.5rem;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
 }
