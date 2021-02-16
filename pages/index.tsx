@@ -31,7 +31,8 @@ const Home: React.FC<Props> = ({ posts }) => {
   return (
     <Page>
       <p className={styles.description}>
-        Personal blog by Morgan McCauley
+        Personal blog by Morgan McCauley<br />
+        Mostly GraphQL & JavaScript
       </p>
       {posts.map((post) => <Post key={post.slug} post={post} />)}
     </Page>
