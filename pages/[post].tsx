@@ -8,17 +8,13 @@ import styles from '../styles/Home.module.css'
 
 type Props = {
   title: string,
-  description: string,
-  date: string,
   html: string,
 }
 
-const Post: React.FC<Props> = ({ title, html, date, description }) => (
+const Post: React.FC<Props> = ({ title, html }) => (
   <Page>
     <h1 className={styles.title}>{title}</h1>
-    <p>{description}</p>
-    <p>{date}</p>
-    <div dangerouslySetInnerHTML={{ __html: html }} />
+    <div className={styles['post-content']} dangerouslySetInnerHTML={{ __html: html }} />
   </Page>
 );
 

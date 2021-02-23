@@ -46,10 +46,12 @@
 }
 
 .title {
-  margin: 0;
+  margin-top: 0px;
+  margin-bottom: 20px;
   line-height: 1.15;
   font-size: 42px;
   font-weight: 800;
+  align-self: center;
 }
 
 .title {
@@ -140,6 +142,11 @@
   margin: 0px;
 }
 
+.post-content {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
 
 @media (max-width: 600px) {
   .grid {
