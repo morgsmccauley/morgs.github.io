@@ -2,8 +2,16 @@ import fs from 'fs';
 import { join } from 'path';
 import marked from 'marked'
 import matter from 'gray-matter';
+import { highlight } from 'highlight.js'
 
 const POSTS_DIR = `${process.cwd()}/posts`;
+
+marked.setOptions({
+  highlight(code, lang) {
+    return highlight(lang, code).value;
+  },
+  langPrefix: 'hljs lang-',
+});
 
 const getPostFiles = () =>
   fs.readdirSync(POSTS_DIR);
